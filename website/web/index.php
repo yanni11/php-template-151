@@ -1,23 +1,53 @@
 <?php
 
+use tsarov\Factory;
+
 error_reporting(E_ALL);
+session_start();
 
 require_once("../vendor/autoload.php");
-$tmpl = new ihrname\SimpleTemplateEngine(__DIR__ . "/../templates/");
 
+
+
+$factory = Factory::createFromIniFile(__DIR__ . "/../config.ini");
+
+/*
+if(!array_key_exists("email", $_SESSION) && $_SERVER["REQUEST_URI"] != "/login") {
+	header("Location: /login");
+	die();
+}
+*/
 switch($_SERVER["REQUEST_URI"]) {
 	
 	case "/testroute":
 		echo "Test bla bla";
 		break;
 	case "/":
-		(new ihrname\Controller\IndexController($tmpl))->homepage();
+		
+		($factory->getIndexController())->homepage();
 		break;
-	
+		
+	case "/login":
+		$ctrl = $factory->getLoginController();
+		if ($_SERVER['REQUEST_METHOD'] == 'GET')
+		{
+			$ctrl->showLogin();
+		}
+		else 
+		{
+			$ctrl->Login($_POST);
+		}
+		break;
+	case "/catalog":
+		
+		$ctrl = $factory->getMotorradController();
+		$ctrl->catalog();
+		
+		break;
 	default:
 		$matches = [];
 		if(preg_match("|^/hello/(.+)$|", $_SERVER["REQUEST_URI"], $matches)) {
-			(new ihrname\Controller\IndexController($tmpl))->greet($matches[1]);
+			($factory->getIndexController())->greet($matches[1]);
 			break;
 		}
 		echo "Not Found";

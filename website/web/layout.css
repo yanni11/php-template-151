@@ -1,0 +1,48 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+#header{
+	font-size: 30px;
+	margin-bottom: 20px;
+}
+h1{
+	text-align:center;
+}
+#navi{
+	height: 40px;	
+	
+	
+}
+#navi ul{
+	margin: auto;	
+	
+	
+}
+#navi ul li{
+	display:inline;
+	
+}
+#navi ul li a{
+	padding: 5px 30px;
+	margin: 5px 20px;
+	text-decoration: none;
+	color: black;
+	background: white;
+	box-shadow: 0 0 15px 20px transparent;
+	transition: 0.2s;
+}
+#navi ul li a:hover{
+	box-shadow: 0 0 0 2px gray;
+	background: gray;
+	color:white;
+}
+
+
+#content{
+	min-height: 600px;
+}
+#footer{
+	background: #8f5902;
+}
