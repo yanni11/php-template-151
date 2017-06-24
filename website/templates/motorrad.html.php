@@ -17,7 +17,8 @@
 	<?php
 		foreach ($comments as $comment)
 		{
-			echo $comment->Text;
+			var_dump($comment->User);
+			echo "<p>". $comment->User->Firstname . " " . $comment->User->Lastname . ": " . $comment->Text . "</p>";
 		}
 	?>
 </div>

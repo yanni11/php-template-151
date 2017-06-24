@@ -73,7 +73,6 @@ class MotorradService
 			$comment = new Comment($row->Id,
 					$row->Text,
 					$this->getUser($row->UserId));
-				
 			$comments[$row->Id] = $comment;
 		}
 		
