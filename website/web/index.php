@@ -17,7 +17,7 @@ if(!array_key_exists("email", $_SESSION) && $_SERVER["REQUEST_URI"] != "/login")
 	die();
 }
 */
-switch($_SERVER["REQUEST_URI"]) {
+switch(strtok($_SERVER["REQUEST_URI"],'?')) {
 	
 	case "/testroute":
 		echo "Test bla bla";
@@ -41,7 +41,7 @@ switch($_SERVER["REQUEST_URI"]) {
 	case "/catalog":
 		
 		$ctrl = $factory->getMotorradController();
-		$ctrl->catalog();
+		$ctrl->catalog($_GET["modelId"], $_GET["typeId"]);
 		
 		break;
 	default:

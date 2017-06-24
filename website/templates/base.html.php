@@ -12,15 +12,8 @@
 			<?php include(__DIR__ . "/menu.html.php"); ?>
 		</div>
 		<hr>
-		<div id="content">
-			<div id="content-left">
-				
-			</div>
-			<div id="content-mid">
-				<?php include(__DIR__ . "/" . $contentMidFile); ?>
-			</div>
-			<div id="content-right">
-			</div>			
+		<div id="content">		
+			<?php include(__DIR__ . "/" . $contentFile); ?>	
 		</div>
 		<div id="footer">
 			<div>

@@ -3,7 +3,7 @@
 		<a href="#">Home</a>
 	</li>
 	<li>
-		<a href="/catalog">Catalog</a>
+		<a href="/catalog?typeId=0&modelId=0">Catalog</a>
 	</li>
 	<li>
 		<a href="#">Site 3</a>

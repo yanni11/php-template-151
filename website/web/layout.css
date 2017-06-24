@@ -11,13 +11,7 @@ h1{
 	text-align:center;
 }
 #navi{
-	height: 40px;	
-	
-	
-}
-#navi ul{
-	margin: auto;	
-	
+	height: 40px;
 	
 }
 #navi ul li{
@@ -26,7 +20,7 @@ h1{
 }
 #navi ul li a{
 	padding: 5px 30px;
-	margin: 5px 20px;
+	margin: 0 20px;
 	text-decoration: none;
 	color: black;
 	background: white;
@@ -34,7 +28,7 @@ h1{
 	transition: 0.2s;
 }
 #navi ul li a:hover{
-	box-shadow: 0 0 0 2px gray;
+	box-shadow: 0 0 0 0 gray;
 	background: gray;
 	color:white;
 }
@@ -43,6 +37,77 @@ h1{
 #content{
 	min-height: 600px;
 }
+
+.typesblock{
+	margin-top:20px;
+	background: #d3d7cf;
+	padding: 5px 0;	
+}
+.typesblock ul{
+	margin-left: 150px;
+}
+.typesblock ul li{
+	display: inline;
+}
+.typesblock ul li a{
+	padding: 5px;
+	text-decoration: none;
+	color: black;
+	transition: 0.2s;
+}
+.typesblock ul li a:hover{
+	color: gray;
+}
+
+.markenblock{
+	width: 150px;
+	min-height: inherit;
+	background: #d3d7cf;
+	float:left;
+}
+.markenblock ul{
+	margin-left: 30px;
+}
+.markenblock ul li{
+	list-style-type: none;
+	margin-bottom: 10px;
+}
+.markenblock ul li a{
+	padding: 5px;
+	text-decoration: none;
+	color: black;
+	transition: 0.2s;
+}
+.markenblock ul li a:hover{
+	color: gray;
+}
+
+.catalogblock{
+	margin-left: 150px;
+	padding: 5px 10px;
+}
+.motorradpanel{
+	margin-top: 20px;
+	
+}
+.motorradpanel a{
+	color: black;
+}
+
+.motorradblock{
+	float:left;
+	background: #d3d7cf;
+	padding: 10px;
+	transition: 0.2s;
+}
+.motorradblock:hover{
+	background: gray;
+}
+.motorradprice{
+	text-align: right;
+}
+
 #footer{
 	background: #8f5902;
+	clear: both;
 }
