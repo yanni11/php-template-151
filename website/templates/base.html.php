@@ -16,9 +16,10 @@
 			<?php include(__DIR__ . "/" . $contentFile); ?>	
 		</div>
 		<div id="footer">
-			<div>
-				Developed by Tsar
-			</div>
+			<hr>
+			<p>
+				Developed by Tsar 2017
+			</p>
 		</div>
 	</div>
 	

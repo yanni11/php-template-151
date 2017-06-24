@@ -2,6 +2,8 @@
 
 namespace tsarov\Service;
 
+use tsarov\Entity\User;
+
 class LoginPdoService implements LoginService
 {
 	
@@ -18,6 +20,7 @@ class LoginPdoService implements LoginService
 		$stmt->bindValue(1, $username);
 		$stmt->bindValue(2, $password);
 		$stmt->execute();
+
 		 
 		if ($stmt->rowCount() == 1)
 		{
@@ -31,17 +34,19 @@ class LoginPdoService implements LoginService
 		}
 	}
 	
-	public function register($username, $password)
+	public function register(User $user)
 	{
 		$stmt = $this->pdo->prepare("select * from user where email = ?");
-		$stmt->bindValue(1, $username);
+		$stmt->bindValue(1, $user->Email);
 		$stmt->execute();
 			
 		if ($stmt->rowCount() == 0)
 		{
-			$stmt = $this->pdo->prepare("insert into user values(?, ?)");
-			$stmt->bindValue(1, $username);
-			$stmt->bindValue(2, $password);
+			$stmt = $this->pdo->prepare("insert into user values(0, ?, ?, ?, ?)");
+			$stmt->bindValue(1, $user->Firstname);
+			$stmt->bindValue(2, $user->Lastname);
+			$stmt->bindValue(3, $user->Email);
+			$stmt->bindValue(4, $user->Password);
 			$stmt->execute();
 		
 			return true;

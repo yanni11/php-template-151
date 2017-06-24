@@ -10,6 +10,29 @@
 h1{
 	text-align:center;
 }
+.loginpage{
+	margin: 20px auto;
+	width: 263px;
+}
+.loginbutton{
+	float: right;
+	
+}
+.loginpage form{
+	margin-top: 20px;
+	
+}
+.loginpage label{
+	display:block;
+	margin:5px;
+	
+}
+.loginpage label span{
+	display:block;
+	float:left;
+	width: 80px;
+	
+}
 #navi{
 	height: 40px;
 	
@@ -31,6 +54,10 @@ h1{
 	box-shadow: 0 0 0 0 gray;
 	background: gray;
 	color:white;
+}
+.loginblock{
+	text-align: right;
+	padding: 0 10;
 }
 
 
@@ -99,6 +126,13 @@ h1{
 	background: #d3d7cf;
 	padding: 10px;
 	transition: 0.2s;
+	margin: 20px;
+	
+}
+.motorradblock img{
+	height: 200px;
+	width: 300px;
+	margin-bottom: 40px;
 }
 .motorradblock:hover{
 	background: gray;
@@ -108,6 +142,6 @@ h1{
 }
 
 #footer{
-	background: #8f5902;
 	clear: both;
+	text-align: center;
 }

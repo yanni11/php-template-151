@@ -21,8 +21,7 @@ class IndexController
 
   public function homepage() {
   	
-  	$this->renderpage("home.html.php");
-    //echo "INDEX";
+  	echo $this->template->render("base.html.php", ["contentFile" => "home.html.php"]);
   }
   
   
@@ -33,9 +32,5 @@ class IndexController
 //   		"name" => $name	
 //   	]);
 //   }
-  
-  public function renderpage($page) {
-  	echo $this->template->render("base.html.php", ["contentMidFile" => $page]);
-  }
   
 }

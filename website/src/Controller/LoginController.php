@@ -4,6 +4,7 @@ namespace tsarov\Controller;
 
 use tsarov\SimpleTemplateEngine;
 use tsarov\Service\LoginService;
+use tsarov\Entity\User;
 
 class LoginController 
 {
@@ -27,7 +28,7 @@ class LoginController
 
   public function showLogin()
   {
-  	  echo $this->renderpage("login.html.php");
+  	echo $this->template->render("base.html.php", ["contentFile" => "login.html.php"]);
   }
   public function Login(array $data)
   {
@@ -49,17 +50,17 @@ class LoginController
   
   public function showRegistration()
   {
-  	echo $this->renderpage("registration.html.php");
+  	echo $this->template->render("base.html.php", ["contentFile" => "registration.html.php"]);
   }
   
-  public function Register(array $data)
+  public function Register(User $user)
   {
-  	if (!array_key_exists('email', $data) OR !array_key_exists('password', $data))
+  	if ($user->Email == null OR $user->Password == null)
   	{
   		$this->showRegistration();
   		return ;
   	}
-  	if($this->loginService->register($data['email'], $data['password']))
+  	if($this->loginService->register($user))
   	{
   		echo "erfolgreich registriert";
   	}
@@ -69,7 +70,4 @@ class LoginController
   	}
   }
   
-  public function renderpage($page) {
-  	echo $this->template->render("base.html.php", ["contentMidFile" => $page]);
-  }
 }

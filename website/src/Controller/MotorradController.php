@@ -32,24 +32,8 @@ class MotorradController
   	$types = $this->motorradService->getTypes();
   	$models = $this->motorradService->getModels();
   	
-  	$title = "Catalog > ";
-  	if ($modelId == 0)
-  	{
-  		$title .= "All Models";
-  	}
-  	else 
-  	{
-  		$title .= $models[$modelId]->Name;
-  	}
-  	$title .= " > ";
-  	if ($typeId == 0)
-  	{
-  		$title .= "All Types";
-  	}
-  	else
-  	{
-  		$title .=  $types[$typeId]->Name;
-  	}
+  	$title = "Catalog > " . $models[$modelId]->Name . " > " . $types[$typeId]->Name;
+  	
   	echo $this->template->render("base.html.php", [
   			"contentFile" => "catalog.html.php", 
   			"motorrader" => $motorrader,
@@ -59,13 +43,24 @@ class MotorradController
   	]);
   }
   
-  public function motorrad()
+  public function motorrad($id)
   {
-  	$model = $this->motorradService->getMotorrad();
+  	$motorrad = $this->motorradService->getMotorrad($id);
+  	$comments = $this->motorradService->getComments($id);
+
   	echo $this->template->render("base.html.php", [
-  			"contentMidFile" => "motorrad.html.php", 
-  			"model" => $model]
+  			"contentFile" => "motorrad.html.php", 
+  			"motorrad" => $motorrad,
+  			"comments" => $comments]
   		);
+  	
+  }
+  public function Comment($data)
+  {
+  	$this->motorradService->postComment($data);
+
+  	$this->motorrad($_REQUEST["Id"]);
+  	 
   }
   
 }

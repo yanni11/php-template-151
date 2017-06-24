@@ -1,6 +1,7 @@
 <?php
 
 use tsarov\Factory;
+use tsarov\Entity\User;
 
 error_reporting(E_ALL);
 session_start();
@@ -38,11 +39,42 @@ switch(strtok($_SERVER["REQUEST_URI"],'?')) {
 			$ctrl->Login($_POST);
 		}
 		break;
+	case "/register":
+		$ctrl = $factory->getLoginController();
+		if ($_SERVER['REQUEST_METHOD'] == 'GET')
+		{
+			$ctrl->showRegistration();
+		}
+		else
+		{
+			
+			$ctrl->Register(new User(0, $_POST["firstname"], $_POST["lastname"], $_POST["email"], $_POST["password"]));
+		}
+		break;
+	case "/logout":
+		
+		unset($_SESSION['email']);
+		header("location:/");
+		
+		break;
 	case "/catalog":
 		
 		$ctrl = $factory->getMotorradController();
 		$ctrl->catalog($_GET["modelId"], $_GET["typeId"]);
 		
+		break;
+	case "/motorrad":
+		$ctrl = $factory->getMotorradController();
+		if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+			
+			$ctrl->motorrad($_GET["Id"]);
+		} 
+		else 
+		{
+			$ctrl->Comment($_POST);
+		}
+		
+	
 		break;
 	default:
 		$matches = [];
